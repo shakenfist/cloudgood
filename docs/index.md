@@ -15,6 +15,11 @@ for review and discussion. Much of this documentation was co-authored with
 Claude, an AI assistant. I guided the content and verified technical accuracy.
 Specific contributions are noted in commit messages.
 
+!!! note
+
+    This work is licensed under
+    [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
+
 This document is also by definition Linux specific, and to a large
 extent x86 specific. This is because this is where my own experience lies.
 

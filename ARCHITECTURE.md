@@ -21,6 +21,7 @@ cloudgood/
 │   ├── orchestration.md     # Orchestration (placeholder)
 │   ├── device-passthrough.md # Device passthrough (placeholder)
 │   └── advanced-hardware.md # RDMA, CXL, etc. (placeholder)
+├── LICENSE                  # CC BY-SA 4.0 license
 ├── STYLEGUIDE.md            # Documentation style conventions
 ├── .pre-commit-config.yaml  # Pre-commit hook configuration
 └── .markdownlint.yaml       # Markdownlint configuration
@@ -66,6 +67,15 @@ The documentation uses mkdocs-material extensions:
 - **Tables** - Standard markdown tables, often in "Want to know more?" sections
 
 See STYLEGUIDE.md for detailed examples.
+
+## Licensing
+
+This documentation is licensed under Creative Commons Attribution-ShareAlike 4.0
+International (CC BY-SA 4.0). This license differs from the main Shaken Fist
+repository (Apache 2.0), which is appropriate for documentation versus software.
+
+The sync_component_docs.py script automatically copies the LICENSE file to the
+destination when syncing, since it differs from the main repository's license.
 
 ## Linting
 
