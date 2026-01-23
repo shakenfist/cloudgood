@@ -8,7 +8,10 @@
 - fundamentals.md: Fundamentals
 - virtualization-history.md: Virtualization history
 # - more-fundamentals.md: More fundamentals
+# - more-booting.md: More about booting
+# - instance-configuration.md: Instance configuration
 # - containers.md: Containers
+# - libvirt.md: LibVirt
 # - virtual-networking.md: Virtual networking
 # - storage.md: Storage
 # - orchestration.md: Orchestration
