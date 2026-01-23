@@ -1,0 +1,16 @@
+---
+# This file defines the ordering and page titles for the import of
+# this content into `shakenfist/docs/components/cloudgood/`. Filees are
+# commented out if they are considered incomplete.
+
+- index.md: Introduction
+- technology-primer.md: Technology primer
+- fundamentals.md: Fundamentals
+- virtualization-history.md: Virtualization history
+# - more-fundamentals.md: More fundamentals
+# - containers.md: Containers
+# - virtual-networking.md: Virtual networking
+# - storage.md: Storage
+# - orchestration.md: Orchestration
+# - device-passthrough.md: Device passthrough
+# - advanced-hardware.md: Advanced hardware technologies
