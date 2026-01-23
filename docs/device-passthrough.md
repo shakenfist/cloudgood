@@ -19,3 +19,5 @@ physical hardware.
 - USB passthrough
 - The trade-offs (loss of live migration, hardware binding)
 - Mediated devices (mdev)
+
+--8<-- "docs-include/abbreviations.md"

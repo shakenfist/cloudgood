@@ -16,3 +16,5 @@ the outside world.
 - The performance costs of virtual networking (linking to DPU discussion)
 
 - Is Cisco ACI virtual networking? Is it a red herring? What about other forms of physical network software orchestration?
+- What about OpenFlow?
+--8<-- "docs-include/abbreviations.md"

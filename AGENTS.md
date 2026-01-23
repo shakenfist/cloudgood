@@ -76,3 +76,84 @@ Common issues and fixes:
 - MD012: Multiple blank lines - reduce to single blank line
 - MD010: Hard tabs - replace with spaces
 - MD047: Missing final newline - add newline at end of file
+
+## MkDocs Extensions
+
+This documentation uses Material for MkDocs with several extensions. Use them
+consistently to improve readability. Full examples are in STYLEGUIDE.md.
+
+### Abbreviations (hover tooltips)
+
+Every document should include the shared abbreviations file at the very end:
+
+```markdown
+--8<-- "docs-include/abbreviations.md"
+```
+
+This provides tooltips for common terms (CPU, VM, KVM, EPT, TLB, etc.). The
+definitions are invisible - readers just see tooltips on hover. Add
+document-specific abbreviations before the include if needed.
+
+### Definition Lists
+
+Use for defining terms, parameters, or options. Preferred over bullet lists
+when each item is a term with a description:
+
+```markdown
+`virtio-net`
+:   Paravirtualized network card for efficient packet transmission.
+
+`virtio-blk`
+:   Paravirtualized block device for disk I/O.
+```
+
+### Tabbed Content
+
+Use when showing alternatives (different OS commands, languages, or methods):
+
+```markdown
+=== "Ubuntu/Debian"
+
+    ```bash
+    sudo apt install package
+    ```
+
+=== "Fedora/RHEL"
+
+    ```bash
+    sudo dnf install package
+    ```
+```
+
+### Code Blocks
+
+Use `title` for filenames and `linenums` for longer examples:
+
+````markdown
+```python title="example.py" linenums="1" hl_lines="2-3"
+def hello():
+    message = "highlighted"
+    print(message)
+```
+````
+
+### Task Lists
+
+Use for checklists or step tracking:
+
+```markdown
+- [x] Completed step
+- [ ] Pending step
+```
+
+### When to Use What
+
+| Content Type | Use This |
+|--------------|----------|
+| Term definitions | Definition list |
+| OS/method alternatives | Tabbed content |
+| Configuration options | Definition list |
+| Step-by-step with tracking | Task list |
+| Aside or footnote | Annotation `{ .annotate }` |
+| Supplementary info | Admonition (`!!! info`) |
+| External quote | Admonition (`!!! quote`) |

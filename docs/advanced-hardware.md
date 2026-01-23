@@ -26,3 +26,5 @@ and virtualization.
 - Persistent memory (Intel Optane, CXL memory)
 - Composable infrastructure concepts
 - Hardware disaggregation trends
+
+--8<-- "docs-include/abbreviations.md"

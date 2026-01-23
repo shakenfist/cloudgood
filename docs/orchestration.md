@@ -13,3 +13,5 @@ This chapter will explore how to manage virtualized infrastructure at scale.
 - Scheduling and placement decisions
 - Multi-tenancy and resource isolation
 - Shaken Fist's approach to orchestration
+
+--8<-- "docs-include/abbreviations.md"

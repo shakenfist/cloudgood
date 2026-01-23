@@ -326,3 +326,17 @@ This is why you'll see virtio devices recommended for VM performance -- they're 
     |-------|----------|
     | Virtio specification | The [OASIS virtio specification](https://docs.oasis-open.org/virtio/virtio/v1.2/virtio-v1.2.html) describes the standard in detail |
     | Linux device drivers | [Linux Device Drivers, 3rd Edition](https://lwn.net/Kernel/LDD3/) is freely available and still relevant for understanding driver concepts |
+
+## TODO
+
+◦ This is not an operating systems course…
+◦ Everything is a file philosophy and mknod (files themselves are an abstraction)
+◦ File handles and file systems
+◦ mmap
+◦ The page cache
+◦ Disk caching
+◦ Sockets / UDS
+◦ Process and thread scheduling
+    ▪ Cooperative multithreading
+    ▪ The other one
+--8<-- "docs-include/abbreviations.md"

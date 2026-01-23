@@ -68,3 +68,128 @@ Virtualization of compute is a very old technology (1). IBM had something which 
 1. https://en.wikipedia.org/wiki/Timeline_of_virtualization_technologies has a useful timeline if you're that way inclined.
 
 The numbering of the annotations need only be unique within the paragraph the annotation exists in.
+
+## Abbreviations
+
+Abbreviations enable hover tooltips for technical terms. The definitions
+are invisible in the rendered output -- readers just see tooltips when
+hovering over defined terms like CPU or VM. The relevant documentation is at
+https://squidfunk.github.io/mkdocs-material/reference/tooltips/#adding-abbreviations
+
+### Using the shared abbreviations file
+
+A shared abbreviations file exists with common virtualization and systems
+terms. Include it at the very end of your markdown file:
+
+```markdown
+--8<-- "docs-include/abbreviations.md"
+```
+
+This single line gives you tooltips for terms like CPU, VM, KVM, EPT, TLB,
+and many others. The file lives in `shakenfist/shakenfist/docs-include/`
+and is available during the documentation build.
+
+### Adding document-specific abbreviations
+
+You can also define abbreviations directly in a document. Place them
+anywhere (typically at the bottom, before the shared include):
+
+*[API]: Application Programming Interface
+*[VM]: Virtual Machine
+*[CPU]: Central Processing Unit
+
+The syntax is `*[TERM]: Definition -- optional longer explanation.`
+
+## Definition Lists
+
+Definition lists are useful for glossaries or documenting parameters. The
+relevant documentation is at
+https://squidfunk.github.io/mkdocs-material/reference/lists/#using-definition-lists
+
+`--network`
+:   The network to attach the instance to. Can be specified multiple times
+    for multiple network interfaces.
+
+`--disk`
+:   A disk specification for the instance. The format is
+    `size@bus:base` where size is in gigabytes.
+
+`--cpu`
+:   The number of vCPUs to allocate to the instance.
+
+## Footnotes
+
+Footnotes are traditional numbered references at the bottom of the page.
+The relevant documentation is at
+https://squidfunk.github.io/mkdocs-material/reference/footnotes/
+
+Here is some text with a footnote[^1] and another[^2].
+
+[^1]: This is the first footnote content. It will appear at the bottom of
+    the rendered page.
+[^2]: Footnotes can contain multiple paragraphs and even code blocks if
+    you indent them properly.
+
+## Code Highlighting
+
+Code blocks support syntax highlighting with line numbers and line
+highlighting. The relevant documentation is at
+https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+
+```python title="example.py" linenums="1" hl_lines="2-3"
+def hello_world():
+    message = "Hello, World!"
+    print(message)
+    return message
+```
+
+The `title` adds a filename header, `linenums` enables line numbers
+starting from the specified value, and `hl_lines` highlights specific
+lines.
+
+## Tabbed Content
+
+Tabbed content is useful for showing alternatives like different operating
+systems or programming languages. The relevant documentation is at
+https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
+
+=== "Ubuntu/Debian"
+
+    ```bash
+    sudo apt install python3-pip
+    pip install shakenfist-client
+    ```
+
+=== "Fedora/RHEL"
+
+    ```bash
+    sudo dnf install python3-pip
+    pip install shakenfist-client
+    ```
+
+=== "From source"
+
+    ```bash
+    git clone https://github.com/shakenfist/client-python
+    cd client-python
+    pip install -e .
+    ```
+
+## Task Lists
+
+Task lists render as checkboxes, useful for checklists or tracking progress.
+The relevant documentation is at
+https://squidfunk.github.io/mkdocs-material/reference/lists/#using-task-lists
+
+- [x] Create the virtual network
+- [x] Upload the base image
+- [ ] Launch the instance
+- [ ] Configure networking
+- [ ] Install application
+
+## Table of Contents Permalinks
+
+With `toc: permalink: true` in the config, each heading gets a clickable
+link icon that appears on hover. This makes it easy to link directly to
+specific sections of a document. No special syntax is needed -- it applies
+automatically to all headings.

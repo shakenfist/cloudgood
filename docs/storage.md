@@ -14,3 +14,5 @@ environments.
 - Snapshots and clones
 - NVMe and NVMe-oF
 - Storage performance considerations for VMs
+
+--8<-- "docs-include/abbreviations.md"
