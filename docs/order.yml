@@ -1,12 +1,13 @@
 ---
 # This file defines the ordering and page titles for the import of
-# this content into `shakenfist/docs/components/cloudgood/`. Filees are
+# this content into `shakenfist/docs/components/cloudgood/`. Files are
 # commented out if they are considered incomplete.
 
 - index.md: Introduction
 - technology-primer.md: Technology primer
 - fundamentals.md: Fundamentals
 - virtualization-history.md: Virtualization history
+- memory-mapped-devices.md: Memory mapped devices
 # - more-fundamentals.md: More fundamentals
 # - more-booting.md: More about booting
 # - instance-configuration.md: Instance configuration
