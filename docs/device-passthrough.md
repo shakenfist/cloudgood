@@ -1,3 +1,8 @@
+---
+issue_repo: https://github.com/shakenfist/cloudgood
+issue_path: docs/device-passthrough.md
+---
+
 # Device Passthrough (incomplete)
 
 This chapter will explore how to give virtual machines direct access to

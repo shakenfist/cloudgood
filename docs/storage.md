@@ -1,3 +1,8 @@
+---
+issue_repo: https://github.com/shakenfist/cloudgood
+issue_path: docs/storage.md
+---
+
 # Storage (incomplete)
 
 This chapter will explore how storage works in virtualized and cloud

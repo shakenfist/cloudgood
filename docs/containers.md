@@ -1,3 +1,8 @@
+---
+issue_repo: https://github.com/shakenfist/cloudgood
+issue_path: docs/containers.md
+---
+
 # Containers (incomplete)
 
 This chapter will explore containers and how they relate to virtual machines.

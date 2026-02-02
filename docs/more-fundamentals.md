@@ -1,3 +1,8 @@
+---
+issue_repo: https://github.com/shakenfist/cloudgood
+issue_path: docs/more-fundamentals.md
+---
+
 # More Fundamentals (incomplete)
 
 Now that we've covered some history, let's circle back and fill in some gaps in our understanding of how operating systems work. These concepts will be important as we dig deeper into virtualization.

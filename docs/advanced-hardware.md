@@ -1,3 +1,8 @@
+---
+issue_repo: https://github.com/shakenfist/cloudgood
+issue_path: docs/advanced-hardware.md
+---
+
 # Advanced Hardware Technologies (incomplete)
 
 This chapter will explore emerging hardware technologies relevant to cloud

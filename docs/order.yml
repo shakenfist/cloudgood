@@ -8,9 +8,11 @@
 - fundamentals.md: Fundamentals
 - virtualization-history.md: Virtualization history
 - memory-mapped-devices.md: Memory mapped devices
+- instance-video.md: Instance video
 # - more-fundamentals.md: More fundamentals
 # - more-booting.md: More about booting
 # - instance-configuration.md: Instance configuration
+# - instance-debugging.md: Instance debugging
 # - containers.md: Containers
 # - libvirt.md: LibVirt
 # - virtual-networking.md: Virtual networking

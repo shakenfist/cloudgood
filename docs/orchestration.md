@@ -1,3 +1,8 @@
+---
+issue_repo: https://github.com/shakenfist/cloudgood
+issue_path: docs/orchestration.md
+---
+
 # Orchestration (incomplete)
 
 This chapter will explore how to manage virtualized infrastructure at scale.

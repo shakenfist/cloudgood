@@ -1,3 +1,8 @@
+---
+issue_repo: https://github.com/shakenfist/cloudgood
+issue_path: docs/virtual-networking.md
+---
+
 # Virtual Networking (incomplete)
 
 This chapter will explore how virtual machines communicate with each other and
