@@ -6,17 +6,23 @@
 - index.md: Introduction
 - technology-primer.md: Technology primer
 - fundamentals.md: Fundamentals
+
+# All about instances with a bit of x86 thrown in for good luck
 - virtualization-history.md: Virtualization history
 - memory-mapped-devices.md: Memory mapped devices
 - instance-video.md: Instance video
-# - more-fundamentals.md: More fundamentals
-# - more-booting.md: More about booting
+- booting.md: Booting
+# - userspace-initialization.md: Userspace initialization
 # - instance-configuration.md: Instance configuration
 # - instance-debugging.md: Instance debugging
-# - containers.md: Containers
 # - libvirt.md: LibVirt
 # - virtual-networking.md: Virtual networking
 # - storage.md: Storage
 # - orchestration.md: Orchestration
 # - device-passthrough.md: Device passthrough
 # - advanced-hardware.md: Advanced hardware technologies
+
+# All about containers, with some operating systems design thrown
+# in for good luck
+# - containers.md: Containers
+# - container-video.md: Container video
