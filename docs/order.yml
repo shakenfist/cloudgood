@@ -11,7 +11,7 @@
 - virtualization-history.md: Virtualization history
 - memory-mapped-devices.md: Memory mapped devices
 - instance-video.md: Instance video
-- booting.md: Booting
+# - booting.md: Booting
 # - userspace-initialization.md: Userspace initialization
 # - instance-configuration.md: Instance configuration
 # - instance-debugging.md: Instance debugging
