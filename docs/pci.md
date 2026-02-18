@@ -18,7 +18,7 @@ system -- because it turns out it's not just RAM all the way down.
 ## The x86 physical address space
 
 Most of us carry around a mental model that looks something like "memory is a
-big linear array of bytes, all backed by RAM." This is a useful simplification,
+big linear array of bytes, all backed by RAM". This is a useful simplification,
 but it's quite wrong. The physical address space on an x86 system is a
 patchwork of RAM, memory-mapped device registers, firmware ROM, reserved
 regions, and outright holes. Understanding this layout is essential for
