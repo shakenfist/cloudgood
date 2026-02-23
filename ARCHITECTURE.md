@@ -17,6 +17,7 @@ cloudgood/
 │   ├── more-fundamentals.md # Additional OS concepts
 │   ├── containers.md        # Containers (placeholder)
 │   ├── virtual-networking.md # Virtual networking (placeholder)
+│   ├── neutron-legacy.md    # Neutron legacy routers (incomplete)
 │   ├── storage.md           # Storage (placeholder)
 │   ├── orchestration.md     # Orchestration (placeholder)
 │   ├── device-passthrough.md # Device passthrough (placeholder)

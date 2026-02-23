@@ -17,6 +17,7 @@
 # - instance-debugging.md: Instance debugging
 # - libvirt.md: LibVirt
 # - virtual-networking.md: Virtual networking
+# - neutron-legacy.md: Neutron legacy routers
 # - storage.md: Storage
 # - orchestration.md: Orchestration
 # - device-passthrough.md: Device passthrough
