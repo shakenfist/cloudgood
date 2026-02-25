@@ -32,7 +32,16 @@ Virtual Router), which moves routing onto the compute nodes themselves.
 Getting packets from an instance on a compute hypervisor to a router
 namespace on a different network node requires a transport layer. Neutron
 most commonly uses Open vSwitch (OVS) for this, arranged as a topology of
-three bridges on each node:
+three bridges on each node (1):
+{ .annotate }
+
+1. A critical architectural point: there is exactly one of each bridge
+   per node, not one per virtual network. All tenant networks on a node
+   share the same br-int, br-tun, and br-ex instances, with local VLAN
+   tags inside br-int providing the isolation between networks. This is
+   fundamentally different from designs that create a separate bridge per
+   virtual network -- it trades simplicity of bridge management for
+   complexity in the OpenFlow rules that multiplex traffic.
 
 **br-int (integration bridge):** The central switching point. Every
 virtual port on the node -- instance TAP devices, router `qr-` and `qg-`
@@ -46,6 +55,20 @@ outside the node.
    OVS agent on each node. The same tenant network might be local VLAN
    100 on one hypervisor and local VLAN 37 on another -- the tunnel
    bridge translates between them.
+
+The Neutron server has no knowledge of local VLAN assignments -- they
+are managed entirely by the OVS agent on each node. At startup, the
+agent creates a pool of all 4094 VLAN IDs. When a network first needs
+representation on that node (because a VM port appears),
+`provision_local_vlan()` pops an ID from the pool and installs OpenFlow
+rules mapping between the local VLAN and the network's tunnel
+segmentation ID. The mapping is held in memory by a `LocalVlanManager`
+singleton and also written into the OVSDB port records (`other_config`
+and `tag` columns), so it can be recovered across agent restarts
+without churn. If all 4094 local VLANs are exhausted (unlikely -- each
+distinct network with at least one port on the node consumes one), the
+agent logs an error and the new network's ports simply have no
+connectivity; existing networks are unaffected.
 
 **br-tun (tunnel bridge):** Connected to br-int via a *patch port* pair
 (`patch-tun` on br-int, `patch-int` on br-tun). This bridge handles
@@ -116,6 +139,8 @@ from Linux primitives.
     | Open vSwitch documentation | [OVS Documentation](https://docs.openvswitch.org/en/latest/intro/what-is-ovs/) |
     | VXLAN encapsulation | [RFC 7348: VXLAN](https://www.rfc-editor.org/rfc/rfc7348) |
     | OpenFlow specification | [Open Networking Foundation Specifications](https://opennetworking.org/software-defined-standards/specifications/) |
+    | OVS agent internals (local VLAN management) | [Open vSwitch L2 Agent](https://docs.openstack.org/neutron/latest/contributor/internals/openvswitch_agent.html) |
+    | OVS agent source code | [ovs_neutron_agent.py](https://github.com/openstack/neutron/blob/master/neutron/plugins/ml2/drivers/openvswitch/agent/ovs_neutron_agent.py) -- `provision_local_vlan()`, `LocalVlanManager`, and OpenFlow rule installation |
 
 ## What is a legacy router?
 
@@ -455,11 +480,18 @@ inbound traffic from the external network.
 ### L3 agent extensions
 
 For more powerful customization, Neutron provides an **L3 agent extension
-framework**. Extensions are Python classes that hook into the router
-lifecycle -- `add_router()`, `update_router()`, `delete_router()` -- and
-receive full access to the router's `iptables_manager`. This means an
-extension can add rules to any table (`nat`, `filter`, `mangle`, `raw`)
-in any chain:
+framework**, introduced in the Newton release (2016) (1). Extensions are
+Python classes that hook into the router lifecycle -- `add_router()`,
+`update_router()`, `delete_router()` -- and receive full access to the
+router's `iptables_manager`. This means an extension can add rules to any
+table (`nat`, `filter`, `mangle`, `raw`) in any chain:
+{ .annotate }
+
+1. The framework was modeled after the L2 agent extension mechanism from
+   Liberty and was primarily driven by engineers from Comcast and Intel.
+   FWaaS v2 (Firewall as a Service) was the original motivating use
+   case. The design was presented at the OpenStack Summit Barcelona in
+   October 2016 as "Under the Trenchcoat: Neutron Agent Extensions."
 
 ```python
 ri.iptables_manager.ipv4['nat'].add_rule(
@@ -502,9 +534,14 @@ maintain rules as routers are created and destroyed.
 
     | Topic | Resource |
     |-------|----------|
+    | L3 agent extensions documentation | [L3 Agent Extensions](https://docs.openstack.org/neutron/latest/contributor/internals/l3_agent_extensions.html) |
+    | Original design specification | [L3 Agent Extension Framework Spec (Newton)](https://specs.openstack.org/openstack/neutron-specs/specs/newton/l3-agent-extension.html) |
+    | Conference talk on agent extensions | [Under the Trenchcoat: Neutron Agent Extensions (Barcelona 2016)](https://www.openstack.org/videos/barcelona-2016/under-the-trenchcoat-neutron-agent-extensions) |
+    | Skeleton extension (tutorial) | [neutron-skeleton-extension](https://github.com/davidsha-Intel/neutron-skeleton-extension) -- reference implementation by one of the framework's authors |
+    | Third-party example: WireGuard VPN | [neutron-wireguard](https://github.com/arnaudmorin/neutron-wireguard) -- WireGuard tunnels in router namespaces for cross-region interconnection |
     | Port forwarding configuration | [Floating IP Port Forwarding](https://docs.openstack.org/neutron/latest/admin/config-fip-port-forwardings.html) |
-    | Port forwarding design specification | [Port Forwarding API Specification](https://specs.openstack.org/openstack/neutron-specs/specs/rocky/port-forwarding.html) |
     | Stevedore plugin framework | [Stevedore Documentation](https://docs.openstack.org/stevedore/latest/) |
+    | Metadata proxy implementation | [neutron/agent/metadata/](https://github.com/openstack/neutron/tree/master/neutron/agent/metadata) -- `driver.py` spawns the proxy inside router namespaces; `agent.py` is the proxy itself |
     | L3 agent configuration | [L3 Agent Configuration](https://docs.openstack.org/neutron/latest/configuration/l3-agent.html) |
 
 ## Static route management

@@ -16,8 +16,15 @@
 # - instance-configuration.md: Instance configuration
 # - instance-debugging.md: Instance debugging
 # - libvirt.md: LibVirt
-# - virtual-networking.md: Virtual networking
-# - neutron-legacy.md: Neutron legacy routers
+
+# Virtual networking: a progression from simple to complex
+- virtual-networking.md: Virtual networking
+- networking-shakenfist.md: Shaken Fist networking
+- neutron-linuxbridge.md: Neutron with Linux bridge
+- neutron-legacy.md: Neutron legacy routers
+# - neutron-ha.md: Neutron HA routers
+# - neutron-dvr.md: Neutron DVR
+
 # - storage.md: Storage
 # - orchestration.md: Orchestration
 # - device-passthrough.md: Device passthrough
