@@ -25,6 +25,9 @@
 # - neutron-ha.md: Neutron HA routers
 # - neutron-dvr.md: Neutron DVR
 
+# Hardware deep dives
+# - memory.md: What even is RAM?
+
 # - storage.md: Storage
 # - orchestration.md: Orchestration
 # - device-passthrough.md: Device passthrough

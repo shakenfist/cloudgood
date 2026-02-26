@@ -143,7 +143,9 @@ kernel device level.
 VNC-based solutions like KasmVNC operate at the framebuffer level -- they send
 compressed bitmap updates representing changed regions of pixels. An
 alternative approach, used by [SPICE](https://www.spice-space.org/) with the
-QXL virtual GPU, operates at the drawing command level.
+QXL virtual GPU, operates at the drawing command level. For a fuller treatment
+of QXL, SPICE, and virtio-gpu in the context of virtual machines, see
+[Instance video](instance-video.md#vnc-vs-spice).
 
 ### How SPICE/QXL works
 

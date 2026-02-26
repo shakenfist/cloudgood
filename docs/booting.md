@@ -155,7 +155,9 @@ adds a small overhead.
 ### Memory RAS features
 
 Server systems implement Memory RAS (Reliability, Availability, Serviceability)
-features that affect both boot and runtime behavior:
+features that affect both boot and runtime behavior. For the full story on how
+ECC works, real-world failure rates, and Rowhammer, see
+[What even is RAM?](memory.md#when-memory-fails).
 
 **ECC and error tracking**: Every memory read is checked for errors. Single-bit
 errors are silently corrected and logged as Correctable Errors (CEs). Multi-bit
