@@ -13,6 +13,7 @@ cloudgood/
 │   ├── order.yml            # Controls import order and titles
 │   ├── technology-primer.md # Fast-paced technical primer
 │   ├── fundamentals.md      # Core computing concepts
+│   ├── accounting.md        # CPU and resource accounting
 │   ├── virtualization-history.md  # History of virtualization
 │   ├── more-fundamentals.md # Additional OS concepts
 │   ├── containers.md        # Containers (placeholder)
@@ -34,17 +35,18 @@ The documents are designed to be read in a specific order:
 
 1. **technology-primer.md** - Fast overview for those with technical background
 2. **fundamentals.md** - Core concepts (computers, kernels, system calls)
-3. **virtualization-history.md** - Historical context (UML through modern DPUs)
-4. **more-fundamentals.md** - Deeper OS concepts (memory, processes, boot)
+3. **accounting.md** - CPU time accounting for processes and VMs, cgroups
+4. **virtualization-history.md** - Historical context (UML through modern DPUs)
+5. **more-fundamentals.md** - Deeper OS concepts (memory, processes, boot)
 
 Future chapters (currently placeholders):
 
-5. **containers.md** - Containers and their relationship to VMs
-6. **virtual-networking.md** - SDN, OVS, overlays, eBPF
-7. **storage.md** - Block, object, distributed storage
-8. **orchestration.md** - OpenStack, Kubernetes, infrastructure management
-9. **device-passthrough.md** - PCI, SR-IOV, GPU, USB passthrough
-10. **advanced-hardware.md** - RDMA, CXL, emerging technologies
+6. **containers.md** - Containers and their relationship to VMs
+7. **virtual-networking.md** - SDN, OVS, overlays, eBPF
+8. **storage.md** - Block, object, distributed storage
+9. **orchestration.md** - OpenStack, Kubernetes, infrastructure management
+10. **device-passthrough.md** - PCI, SR-IOV, GPU, USB passthrough
+11. **advanced-hardware.md** - RDMA, CXL, emerging technologies
 
 ## Build Process
 

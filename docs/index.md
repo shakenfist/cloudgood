@@ -54,6 +54,14 @@ primer.
 [Fundamentals](fundamentals.md) discusses some of the fundamentals of
 computing that we're going to keep coming upon.
 
+[CPU and resource accounting](accounting.md) explores how the Linux
+kernel measures CPU time for both regular processes and virtual
+machines. It turns out the mechanism is fundamentally the same in
+both cases -- timer interrupts give the kernel regular opportunities
+to note what was running and charge the time. This chapter also covers
+steal time (how guests detect lost CPU) and cgroups (how the kernel
+enforces resource limits).
+
 [Virtualization history](virtualization-history.md) takes a slower journey
 through the history of virtualization and how we got to where we are now.
 Virtualization has been around in various forms for a lot longer than many

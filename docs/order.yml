@@ -6,6 +6,7 @@
 - index.md: Introduction
 - technology-primer.md: Technology primer
 - fundamentals.md: Fundamentals
+- accounting.md: CPU and resource accounting
 
 # All about instances with a bit of x86 thrown in for good luck
 - virtualization-history.md: Virtualization history
