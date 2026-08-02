@@ -26,6 +26,9 @@
 # - neutron-ha.md: Neutron HA routers
 # - neutron-dvr.md: Neutron DVR
 
+# The control plane and the state it keeps
+- galera.md: Galera and WSREP replication
+
 # Hardware deep dives
 # - memory.md: What even is RAM?
 

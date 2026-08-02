@@ -19,6 +19,7 @@ cloudgood/
 │   ├── containers.md        # Containers (placeholder)
 │   ├── virtual-networking.md # Virtual networking (placeholder)
 │   ├── neutron-legacy.md    # Neutron legacy routers (incomplete)
+│   ├── galera.md            # Galera and WSREP replication
 │   ├── storage.md           # Storage (placeholder)
 │   ├── orchestration.md     # Orchestration (placeholder)
 │   ├── device-passthrough.md # Device passthrough (placeholder)
@@ -38,6 +39,12 @@ The documents are designed to be read in a specific order:
 3. **accounting.md** - CPU time accounting for processes and VMs, cgroups
 4. **virtualization-history.md** - Historical context (UML through modern DPUs)
 5. **more-fundamentals.md** - Deeper OS concepts (memory, processes, boot)
+
+The virtual networking chapters then progress from simple to complex
+(virtual-networking, networking-shakenfist, neutron-linuxbridge,
+neutron-legacy), after which **galera.md** covers the control plane's own
+state: certification based replication, flow control, state transfers,
+backup procedure, and replication network security.
 
 Future chapters (currently placeholders):
 

@@ -89,4 +89,15 @@ then [OpenStack Neutron's Legacy non-high availability routing](neutron-legacy.m
 with a solid intention to one day cover OpenStack Neutron's HA and DVR
 options at a future date.
 
+We then turn to the control plane's own state.
+[Galera and WSREP replication](galera.md) explains how the database
+underneath almost every OpenStack deployment actually works: how a
+transaction is turned into a write set, broadcast in a global total order,
+and certified independently on every node without any of them talking to
+each other. That mechanism explains most of the things operators find
+surprising -- deadlock errors at commit time, one slow node pausing the
+whole cluster, and why a backup taken carelessly on a "spare" node can hurt
+the busy one. It closes with what all of this puts on the network, and why
+the replication network is the cluster's real security boundary.
+
 --8<-- "docs-include/abbreviations.md"
