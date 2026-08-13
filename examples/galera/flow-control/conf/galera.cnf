@@ -1,0 +1,35 @@
+[mysqld]
+bind-address = 0.0.0.0
+
+# Galera requires all three of these. See the "following a transaction"
+# section of the Galera chapter for why row based logging and InnoDB are
+# not optional.
+binlog_format            = ROW
+default_storage_engine   = InnoDB
+innodb_autoinc_lock_mode = 2
+
+# Three database servers on one host share one disk, and without this they
+# spend the whole demo waiting on fsync rather than demonstrating anything
+# about replication. This is also the setting many real Galera operators
+# choose, on the theory that the cluster rather than the local disk is now
+# the durability mechanism -- see the performance section of the chapter for
+# why that is a real trade and not a free win.
+innodb_flush_log_at_trx_commit = 2
+innodb_buffer_pool_size        = 512M
+
+wsrep_on              = ON
+wsrep_provider        = /usr/lib/galera/libgalera_smm.so
+wsrep_cluster_name    = cloudgood
+wsrep_cluster_address = gcomm://node1,node2,node3
+wsrep_sst_method      = mariabackup
+wsrep_sst_auth        = root:demopass
+
+# gcs.fc_limit is the receive queue depth at which a node starts throttling
+# the rest of the cluster. Sixteen is the stock default and is left explicit
+# here because it is the single most important number in this demo: a healthy
+# node sits far below it, and a slow one crosses it within seconds.
+wsrep_provider_options = "gcache.size=128M; gcs.fc_limit=16"
+
+# Start with enough applier threads that the baseline is healthy. The demo
+# reduces this at runtime to create a slow node.
+wsrep_slave_threads = 8

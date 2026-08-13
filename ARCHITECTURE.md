@@ -24,6 +24,11 @@ cloudgood/
 │   ├── orchestration.md     # Orchestration (placeholder)
 │   ├── device-passthrough.md # Device passthrough (placeholder)
 │   └── advanced-hardware.md # RDMA, CXL, etc. (placeholder)
+├── examples/                # Runnable demonstrations referenced from docs/
+│   ├── video/               # Bare metal VGA text mode and mode 13h demos
+│   └── galera/
+│       └── flow-control/    # Three node Galera cluster demonstrating that
+│                            # one slow node stalls the whole cluster
 ├── LICENSE                  # CC BY-SA 4.0 license
 ├── STYLEGUIDE.md            # Documentation style conventions
 ├── .pre-commit-config.yaml  # Pre-commit hook configuration

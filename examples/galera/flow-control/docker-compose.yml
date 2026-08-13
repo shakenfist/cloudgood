@@ -1,0 +1,57 @@
+---
+name: cloudgood-galera
+
+x-node: &node
+  image: mariadb:11.4
+  environment:
+    MARIADB_ROOT_PASSWORD: demopass
+  volumes:
+    - ./conf/galera.cnf:/etc/mysql/conf.d/galera.cnf:ro
+    - ./conf/healthcheck.sh:/usr/local/bin/cg-healthcheck:ro
+  healthcheck:
+    test: ['CMD', '/usr/local/bin/cg-healthcheck']
+    interval: 5s
+    timeout: 5s
+    retries: 60
+  networks:
+    - galera
+
+services:
+  # node1 bootstraps the cluster. --wsrep-new-cluster tells it to form a new
+  # Primary Component rather than looking for an existing one to join.
+  node1:
+    <<: *node
+    container_name: cg-node1
+    hostname: node1
+    command: ['--wsrep-new-cluster', '--wsrep_node_name=node1', '--wsrep_node_address=node1']
+    ports:
+      - '3306:3306'
+
+  # node2 and node3 join the existing cluster, which means a state transfer.
+  # They wait for node1 to be healthy first, because a joiner with nothing to
+  # join just fails and restarts.
+  node2:
+    <<: *node
+    container_name: cg-node2
+    hostname: node2
+    command: ['--wsrep_node_name=node2', '--wsrep_node_address=node2']
+    ports:
+      - '3307:3306'
+    depends_on:
+      node1:
+        condition: service_healthy
+
+  node3:
+    <<: *node
+    container_name: cg-node3
+    hostname: node3
+    command: ['--wsrep_node_name=node3', '--wsrep_node_address=node3']
+    ports:
+      - '3308:3306'
+    depends_on:
+      node2:
+        condition: service_healthy
+
+networks:
+  galera:
+    driver: bridge
