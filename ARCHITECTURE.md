@@ -4,6 +4,11 @@ This repository contains educational documentation about cloud computing,
 virtualization, and distributed systems. The content is written for
 shakenfist.com and is synced into the main Shaken Fist documentation site.
 
+The documentation itself is the product: [docs/index.md](docs/index.md)
+is the introduction and navigation, and [docs/order.yml](docs/order.yml)
+controls which pages are imported and in what order. This document
+describes only how the repository is built and published.
+
 ## Repository Structure
 
 ```
