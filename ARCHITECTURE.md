@@ -123,3 +123,5 @@ mostly copied verbatim from the templates in shakenfist/development:
   commit time.
 - **pr-re-review.yml** - Commenting "@shakenfist-bot please re-review" on
   a pull request asks the automated reviewer for another review.
+- **renovate.yml** - Runs Renovate hourly against renovate.json, which
+  keeps the pre-commit hook and GitHub Actions versions current.
