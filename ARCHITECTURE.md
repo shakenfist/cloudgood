@@ -30,6 +30,7 @@ cloudgood/
 │   ├── device-passthrough.md # Device passthrough (placeholder)
 │   └── advanced-hardware.md # RDMA, CXL, etc. (placeholder)
 ├── .github/workflows/       # CI lanes (see Continuous integration below)
+├── tools/                   # mermaid-lint.sh, which renders every diagram
 ├── examples/                # Runnable demonstrations referenced from docs/
 │   ├── video/               # Bare metal VGA text mode and mode 13h demos
 │   └── galera/
@@ -117,3 +118,6 @@ mostly copied verbatim from the templates in shakenfist/development:
 
 - **lint.yml** - Runs every pre-commit hook on pull requests and pushes
   to main, so a commit made without the hooks installed is still checked.
+- **mermaid-lint.yml** - Renders every mermaid diagram with
+  tools/mermaid-lint.sh, since mermaid fails at render time rather than at
+  commit time.
