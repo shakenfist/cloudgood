@@ -125,3 +125,5 @@ mostly copied verbatim from the templates in shakenfist/development:
   a pull request asks the automated reviewer for another review.
 - **renovate.yml** - Runs Renovate hourly against renovate.json, which
   keeps the pre-commit hook and GitHub Actions versions current.
+- **export-repo-config.yml** - Exports the repository's GitHub settings
+  daily, through the shared workflow in shakenfist/actions.
