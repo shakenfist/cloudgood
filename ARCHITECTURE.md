@@ -121,3 +121,5 @@ mostly copied verbatim from the templates in shakenfist/development:
 - **mermaid-lint.yml** - Renders every mermaid diagram with
   tools/mermaid-lint.sh, since mermaid fails at render time rather than at
   commit time.
+- **pr-re-review.yml** - Commenting "@shakenfist-bot please re-review" on
+  a pull request asks the automated reviewer for another review.
