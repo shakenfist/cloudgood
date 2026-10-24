@@ -1,6 +1,6 @@
 ---
 issue_repo: https://github.com/shakenfist/cloudgood
-issue_path: docs/more-booting.md
+issue_path: docs/booting.md
 ---
 
 # Let's talk more about the boot process for an x86 computer

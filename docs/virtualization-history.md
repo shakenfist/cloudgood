@@ -215,7 +215,7 @@ I guess I should also note that we could have created this virtual disk first, m
 
 ???+ info
 
-    PID 1? What's PID 1? We'll talk more about that in [the next chapter](more-fundamentals.md).
+    PID 1? What's PID 1? We'll talk more about that in [the next chapter](userspace-initialization.md).
 
 Regardless, we can now boot a working UML virtual machine:
 

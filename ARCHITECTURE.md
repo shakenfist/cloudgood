@@ -20,7 +20,7 @@ cloudgood/
 │   ├── fundamentals.md      # Core computing concepts
 │   ├── accounting.md        # CPU and resource accounting
 │   ├── virtualization-history.md  # History of virtualization
-│   ├── more-fundamentals.md # Additional OS concepts
+│   ├── userspace-initialization.md # Additional OS concepts
 │   ├── containers.md        # Containers (placeholder)
 │   ├── virtual-networking.md # Virtual networking (placeholder)
 │   ├── neutron-legacy.md    # Neutron legacy routers (incomplete)
@@ -49,7 +49,7 @@ The documents are designed to be read in a specific order:
 2. **fundamentals.md** - Core concepts (computers, kernels, system calls)
 3. **accounting.md** - CPU time accounting for processes and VMs, cgroups
 4. **virtualization-history.md** - Historical context (UML through modern DPUs)
-5. **more-fundamentals.md** - Deeper OS concepts (memory, processes, boot)
+5. **userspace-initialization.md** - Deeper OS concepts (memory, processes, boot)
 
 The virtual networking chapters then progress from simple to complex
 (virtual-networking, networking-shakenfist, neutron-linuxbridge,

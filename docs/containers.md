@@ -22,7 +22,7 @@ More detail on processes
 - The isolation/performance trade-off compared to VMs
 - Container runtimes (runc, crun, containerd, CRI-O)
 - Why containers aren't as isolated as VMs
-- The PID 1 problem in containers (referencing more-fundamentals.md)
+- The PID 1 problem in containers (referencing userspace-initialization.md)
 - gVisor, Kata Containers, and other attempts to bridge the gap
 - When to use containers vs VMs vs microVMs
 

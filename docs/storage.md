@@ -10,7 +10,7 @@ environments.
 
 ## Planned topics
 
-- Block devices and disk images (expanding on more-fundamentals.md)
+- Block devices and disk images (expanding on userspace-initialization.md)
 - Local vs remote storage trade-offs
 - Shared storage (NFS, iSCSI, Fibre Channel)
 - Distributed storage systems (Ceph, GlusterFS)
