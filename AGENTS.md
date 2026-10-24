@@ -29,6 +29,9 @@ virtualization. The content is aimed at developers learning about:
   - `!!! info "Want to know more?"` for reference tables
   - `!!! quote` for external quotations with attribution
 - Wrap lines at 80 characters for prose paragraphs
+- Draw diagrams of structure or flow as `mermaid` fences, not ASCII art.
+  Memory maps, bit-field layouts and directory trees stay as plain fences.
+  `tools/mermaid-lint.sh` renders every diagram (it needs docker)
 - Use single quotes for Python strings (per user preference)
 
 ## Annotations Syntax
@@ -53,7 +56,9 @@ Always run before proposing commits:
 pre-commit run --all-files
 ```
 
-This runs markdownlint-cli2 on all docs/*.md files.
+This runs markdownlint-cli2 on all docs/*.md files, and skillsaw over the
+agent context (this file, and any skills added later). The Lint workflow
+runs the same hooks in CI.
 
 ## Common Tasks
 

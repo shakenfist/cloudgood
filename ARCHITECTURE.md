@@ -20,7 +20,7 @@ cloudgood/
 │   ├── fundamentals.md      # Core computing concepts
 │   ├── accounting.md        # CPU and resource accounting
 │   ├── virtualization-history.md  # History of virtualization
-│   ├── more-fundamentals.md # Additional OS concepts
+│   ├── userspace-initialization.md # Additional OS concepts
 │   ├── containers.md        # Containers (placeholder)
 │   ├── virtual-networking.md # Virtual networking (placeholder)
 │   ├── neutron-legacy.md    # Neutron legacy routers (incomplete)
@@ -29,6 +29,8 @@ cloudgood/
 │   ├── orchestration.md     # Orchestration (placeholder)
 │   ├── device-passthrough.md # Device passthrough (placeholder)
 │   └── advanced-hardware.md # RDMA, CXL, etc. (placeholder)
+├── .github/workflows/       # CI lanes (see Continuous integration below)
+├── tools/                   # mermaid-lint.sh, which renders every diagram
 ├── examples/                # Runnable demonstrations referenced from docs/
 │   ├── video/               # Bare metal VGA text mode and mode 13h demos
 │   └── galera/
@@ -48,7 +50,7 @@ The documents are designed to be read in a specific order:
 2. **fundamentals.md** - Core concepts (computers, kernels, system calls)
 3. **accounting.md** - CPU time accounting for processes and VMs, cgroups
 4. **virtualization-history.md** - Historical context (UML through modern DPUs)
-5. **more-fundamentals.md** - Deeper OS concepts (memory, processes, boot)
+5. **userspace-initialization.md** - Deeper OS concepts (memory, processes, boot)
 
 The virtual networking chapters then progress from simple to complex
 (virtual-networking, networking-shakenfist, neutron-linuxbridge,
@@ -101,8 +103,27 @@ destination when syncing, since it differs from the main repository's license.
 
 Markdown files are linted with markdownlint-cli2. The configuration in
 .markdownlint.yaml disables rules that conflict with mkdocs-material syntax.
+skillsaw lints the agent context (AGENTS.md) for malformed frontmatter,
+embedded credentials and invisible unicode.
 
 Run linting manually:
 ```bash
 pre-commit run --all-files
 ```
+
+## Continuous integration
+
+The workflows in .github/workflows/ are the fleet's standard lanes,
+mostly copied verbatim from the templates in shakenfist/development:
+
+- **lint.yml** - Runs every pre-commit hook on pull requests and pushes
+  to main, so a commit made without the hooks installed is still checked.
+- **mermaid-lint.yml** - Renders every mermaid diagram with
+  tools/mermaid-lint.sh, since mermaid fails at render time rather than at
+  commit time.
+- **pr-re-review.yml** - Commenting "@shakenfist-bot please re-review" on
+  a pull request asks the automated reviewer for another review.
+- **renovate.yml** - Runs Renovate hourly against renovate.json, which
+  keeps the pre-commit hook and GitHub Actions versions current.
+- **export-repo-config.yml** - Exports the repository's GitHub settings
+  daily, through the shared workflow in shakenfist/actions.

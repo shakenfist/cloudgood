@@ -1,6 +1,6 @@
 ---
 issue_repo: https://github.com/shakenfist/cloudgood
-issue_path: docs/more-fundamentals.md
+issue_path: docs/userspace-initialization.md
 ---
 
 # More Fundamentals (incomplete)

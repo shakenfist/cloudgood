@@ -1,6 +1,25 @@
 repos:
-  - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.17.2
+  # A local hook rather than the upstream repository's own. Installing
+  # that one runs npm inside the upstream checkout, whose .npmrc sets
+  # engine-strict=true, and npm resolves formatter-default's
+  # markdownlint-cli2 peer dependency to the latest release whatever rev
+  # is pinned here. Once a release required a newer Node than Debian 13
+  # ships, every fresh install failed with EBADENGINE. Installed as an
+  # additional dependency, the pin below is the version that runs, and
+  # Renovate's pre-commit manager still bumps it.
+  - repo: local
     hooks:
       - id: markdownlint-cli2
+        name: markdownlint-cli2
+        entry: markdownlint-cli2
+        language: node
+        additional_dependencies: [markdownlint-cli2@0.17.2]
         files: ^docs/.*\.md$
+
+  # skillsaw lints agent context -- AGENTS.md here, plus any skills,
+  # hooks or MCP configuration added later -- for malformed frontmatter,
+  # embedded credentials and invisible-unicode smuggling.
+  - repo: https://github.com/stbenjam/skillsaw
+    rev: v0.22.0
+    hooks:
+      - id: skillsaw
