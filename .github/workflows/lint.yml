@@ -1,0 +1,52 @@
+name: Lint
+
+# audit-ok: no-path-filter -- this repository is a book, so docs/ is
+# the product rather than something beside it, and markdownlint over
+# docs/ is most of what this lane runs. A filter excluding docs/ would
+# skip the lane on nearly every pull request it exists for.
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint
+    # SECURITY: fork pull requests do not run this job. It executes the
+    # pull request's own code on a self-hosted runner -- pre-commit
+    # clones and runs whatever repos .pre-commit-config.yaml names -- so
+    # a fork's change would run there with nobody having read it first.
+    if: |
+      github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, vm, debian-13, s]
+    timeout-minutes: 15
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-lint
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install pre-commit
+        run: |
+          python3 -m venv "${RUNNER_TEMP}/venv-lint"
+          "${RUNNER_TEMP}/venv-lint/bin/pip" install --quiet pre-commit
+
+      # Every hook in .pre-commit-config.yaml runs here, so a commit
+      # made with --no-verify, or from a clone that never ran
+      # pre-commit install, is still checked. That includes skillsaw
+      # (https://github.com/stbenjam/skillsaw), which lints AGENTS.md
+      # for malformed frontmatter, embedded credentials and
+      # invisible-unicode smuggling.
+      - name: Run pre-commit hooks
+        run: |
+          "${RUNNER_TEMP}/venv-lint/bin/pre-commit" run --all-files --show-diff-on-failure

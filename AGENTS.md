@@ -53,7 +53,9 @@ Always run before proposing commits:
 pre-commit run --all-files
 ```
 
-This runs markdownlint-cli2 on all docs/*.md files.
+This runs markdownlint-cli2 on all docs/*.md files, and skillsaw over the
+agent context (this file, and any skills added later). The Lint workflow
+runs the same hooks in CI.
 
 ## Common Tasks
 

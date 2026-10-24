@@ -15,3 +15,11 @@ repos:
         language: node
         additional_dependencies: [markdownlint-cli2@0.17.2]
         files: ^docs/.*\.md$
+
+  # skillsaw lints agent context -- AGENTS.md here, plus any skills,
+  # hooks or MCP configuration added later -- for malformed frontmatter,
+  # embedded credentials and invisible-unicode smuggling.
+  - repo: https://github.com/stbenjam/skillsaw
+    rev: v0.22.0
+    hooks:
+      - id: skillsaw
