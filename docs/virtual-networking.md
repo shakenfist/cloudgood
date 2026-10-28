@@ -128,7 +128,7 @@ the same Linux primitives but makes different trade-offs in complexity,
 performance, and capability.
 
 | Chapter | Approach | Status |
-|---------|----------|--------|
+| --------- | ---------- | -------- |
 | [Shaken Fist networking](networking-shakenfist.md) | Bridge per network, kernel VXLAN, single network node | In production |
 | [Neutron with Linux bridge](neutron-linuxbridge.md) | Bridge per network, kernel VXLAN, within OpenStack | Removed in 2025.1 |
 | [Neutron legacy routers (OVS)](neutron-legacy.md) | Shared OVS bridges, OpenFlow, centralized routing | Supported |

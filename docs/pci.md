@@ -36,7 +36,7 @@ terabytes.
 Here's what lives there:
 
 | Address range | Size | Contents |
-|---|---|---|
+| --- | --- | --- |
 | `0x00000`--`0x003FF` | 1 KiB | **Real-mode Interrupt Vector Table (IVT)** -- 256 entries of 4 bytes each (segment:offset pairs). Used by the BIOS and real-mode code for interrupt dispatch. |
 | `0x00400`--`0x004FF` | 256 bytes | **BIOS Data Area (BDA)** -- BIOS state information: serial/parallel port addresses, equipment list, memory size, keyboard buffer, video state, disk state, timer tick count. |
 | `0x00500`--`0x07BFF` | ~30 KiB | **Free conventional memory** -- Available for use. The bootloader is traditionally loaded at `0x7C00`. |
@@ -101,7 +101,7 @@ The topmost ~20 MiB of the 32-bit address space is reserved for hardcoded
 platform devices at addresses that are essentially unchangeable:
 
 | Address | Device |
-|---|---|
+| --- | --- |
 | `0xFEC00000` | **I/O APIC** -- the interrupt routing controller. The actual address is confirmed by the ACPI MADT table. |
 | `0xFED00000` | **HPET** (High Precision Event Timer) -- high-resolution timer registers. |
 | `0xFED40000` | **TPM** (Trusted Platform Module) -- when present. |
@@ -186,7 +186,7 @@ AX=E820h` -- a BIOS call that returns an array of address range descriptors,
 each with a type:
 
 | Type | Name | Meaning |
-|---|---|---|
+| --- | --- | --- |
 | 1 | AddressRangeMemory | Usable RAM -- OS can use freely |
 | 2 | AddressRangeReserved | Reserved -- firmware, MMIO, or otherwise off-limits |
 | 3 | AddressRangeACPI | ACPI tables -- OS can reclaim after parsing |

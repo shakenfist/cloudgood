@@ -228,7 +228,7 @@ nanoseconds) and simple to interface with, which is why it's used for
 CPU caches:
 
 | Cache level | Typical access time | Typical size |
-|-------------|-------------------|--------------|
+| ------------- | ------------------- | -------------- |
 | L1 | ~1-1.5 ns | 32-128 KB per core |
 | L2 | ~3-5 ns | 256 KB - 1 MB per core |
 | L3 | ~10-20 ns | 8-64 MB shared |
@@ -345,7 +345,7 @@ optional -- even for consumer hardware. The physics of the capacitor is
 becoming a first-order engineering constraint.
 
 | Generation | JEDEC ratified | Prefetch | Voltage | Key innovation |
-|------------|---------------|----------|---------|----------------|
+| ------------ | --------------- | ---------- | --------- | ---------------- |
 | DDR1 | June 2000 | 2n | 2.5V | Double data rate |
 | DDR2 | September 2003 | 4n | 1.8V | On-die termination |
 | DDR3 | June 2007 | 8n | 1.5V | Lower power |

@@ -163,13 +163,13 @@ rectangle with blue" rather than sending the resulting pixels.
 
 ### Practical differences
 
-| Operation       | VNC (bitmap)                          | SPICE/QXL (commands)                |
-|-----------------|---------------------------------------|-------------------------------------|
+| Operation       | VNC (bitmap)                           | SPICE/QXL (commands)                              |
+|-----------------|----------------------------------------|---------------------------------------------------|
 | Scrolling       | Sends entire scrolled region as pixels | Sends scroll command; client moves pixels locally |
-| Solid fill      | Sends rectangle of identical pixels   | Sends "fill with colour" command    |
-| Repeated images | Re-sends bitmap (unless cached)       | Client caches and reuses            |
-| Text rendering  | Sends text as rasterised pixels       | Can send glyph data for client rendering |
-| Window drag     | Continuous bitmap updates             | Window position updates             |
+| Solid fill      | Sends rectangle of identical pixels    | Sends "fill with colour" command                  |
+| Repeated images | Re-sends bitmap (unless cached)        | Client caches and reuses                          |
+| Text rendering  | Sends text as rasterised pixels        | Can send glyph data for client rendering          |
+| Window drag     | Continuous bitmap updates              | Window position updates                           |
 
 The SPICE documentation notes that even basic QXL acceleration "provides a
 better user experience than VNC because scrolling is accelerated and doesn't
@@ -298,7 +298,7 @@ mode" (xorgxrdp's predecessor).
 **Where xRDP fits:**
 
 | Solution | Interception point | Transport | What gets sent |
-|----------|-------------------|-----------|----------------|
+| ---------- | ------------------- | ----------- | ---------------- |
 | Xvnc / KasmVNC | Framebuffer | VNC/WebSocket | Bitmap updates |
 | xRDP + Xvnc | Framebuffer | VNC→RDP | Bitmap updates |
 | xRDP + xorgxrdp | X server module | RDP | Drawing commands |
