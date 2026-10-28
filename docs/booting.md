@@ -259,7 +259,7 @@ stage bootloader, ending the pre-boot phase.
 ## Standardization summary
 
 | Component | Standardized? | Notes |
-|-----------|---------------|-------|
+| ----------- | --------------- | ------- |
 | CPU reset vector | Yes | Defined by Intel/AMD processor specifications |
 | UEFI interface | Yes | UEFI Forum specification |
 | Legacy BIOS | No | De facto IBM PC compatibility, no formal spec |
