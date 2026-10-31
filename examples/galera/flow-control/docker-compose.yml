@@ -2,7 +2,7 @@
 name: cloudgood-galera
 
 x-node: &node
-  image: mariadb:12.3
+  image: mariadb:13.0
   environment:
     MARIADB_ROOT_PASSWORD: demopass
   volumes:
