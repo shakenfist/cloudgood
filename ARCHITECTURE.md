@@ -123,7 +123,10 @@ mostly copied verbatim from the templates in shakenfist/development:
   commit time.
 - **pr-re-review.yml** - Commenting "@shakenfist-bot please re-review" on
   a pull request asks the automated reviewer for another review.
-- **renovate.yml** - Runs Renovate hourly against renovate.json, which
-  keeps the pre-commit hook and GitHub Actions versions current.
 - **export-repo-config.yml** - Exports the repository's GitHub settings
   daily, through the shared workflow in shakenfist/actions.
+
+Dependency bumps arrive from outside the repository: a single Renovate
+runner in shakenfist/development works over the whole fleet, and
+renovate.json here does nothing but extend that repository's fleet
+preset, which holds the policy once for every repository.
